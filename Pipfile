@@ -32,6 +32,7 @@ mailchimp3 = "*"
 yapf = "*"
 pylint = "*"
 ipython = "*"
+parso = "*"
 
 [requires]
 python_version = "3.6"
