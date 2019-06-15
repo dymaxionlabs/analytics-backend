@@ -23,12 +23,13 @@ after_success:
   - bash <(curl -s https://codecov.io/bash)
 
 env:
-  - DB_NAME=terra
-  - DB_HOST=localhost
-  - DB_USER=postgres
-  - DB_PASSWORD=""
-  - RQ_REDIS_URL=redis://localhost:6379/0
-  - RQ_TIMEOUT=360
-  - SECRET_KEY="foobar"
-  - SENTRY_DNS=""
-  - WEBCLIENT_URL=http://localhost:3000
+  global:
+    - DB_NAME=terra
+    - DB_HOST=localhost
+    - DB_USER=postgres
+    - DB_PASSWORD=""
+    - RQ_REDIS_URL=redis://localhost:6379/0
+    - RQ_TIMEOUT=360
+    - SECRET_KEY="foobar"
+    - SENTRY_DNS=""
+    - WEBCLIENT_URL=http://localhost:3000
