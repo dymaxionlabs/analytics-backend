@@ -1,4 +1,12 @@
-# Terra
+# analytics-backend
+
+[![Build Status](https://travis-ci.org/dymaxionlabs/analytics-backend.svg?branch=master)](https://travis-ci.org/dymaxionlabs/analytics-backend)
+[![codecov](https://codecov.io/gh/dymaxionlabs/analytics-backend/branch/master/graph/badge.svg)](https://codecov.io/gh/dymaxionlabs/analytics-backend)
+
+Dymaxion Analytics backend repository.
+
+For more information on the frontend, see the repository at
+[https://github.com/dymaxionlabs/analytics-frontend](https://github.com/dymaxionlabs/analytics-frontend).
 
 ## Requirements
 
@@ -11,7 +19,14 @@
 * Install dependencies
 
 ```
-sudo apt-get install python3 python3-dev python3-pip libgdal-dev libproj-dev postgresql postgis
+sudo apt-get install \
+  libgdal-dev \
+  libproj-dev \
+  postgis \
+  postgresql \
+  python3 \
+  python3-dev \
+  python3-pip
 ```
 
 * Create a role and database (e.g. `terra`)
@@ -40,7 +55,10 @@ cp env.sample .env
 ```
 pip install --user -U pipenv
 pipenv install
-pipenv install django-anymail[mailgun] django-rest-auth[with_social] django-storages[google]
+pipenv install \
+  django-anymail[mailgun] \
+  django-rest-auth[with_social] \
+  django-storages[google]
 ```
 
 Then inside a pipenv shell (use `pipenv shell`) you should first do the following:
@@ -94,3 +112,23 @@ When adding new translated strings:
 * Run `django-admin makemessages`
 * Update .po files
 * Run `django-admin compilemessages`
+
+## Issue tracker
+
+Please report any bugs and enhancement ideas using the GitHub issue tracker:
+
+  https://github.com/dymaxionlabs/analytics-backend/issues
+
+
+## Help wanted
+
+Any help in testing, development, documentation and other tasks is highly
+appreciated and useful to the project.
+
+For more details, see the file [CONTRIBUTING.md](CONTRIBUTING.md).
+
+
+## License
+
+Source code is released under a BSD-2 license.  Please refer to
+[LICENSE.md](LICENSE.md) for more information.
