@@ -1,0 +1,40 @@
+version: "3.6"
+
+x-app-opts: &app-opts
+  build: .
+  image: "analytics:latest"
+  volumes:
+    - .:/app
+  environment:
+    - PG_HOST=db
+    - REDIS_URL=redis://redis:6379/0
+  depends_on:
+    - db
+    - redis
+
+services:
+  db:
+    image: mdillon/postgis
+    ports:
+      - "5433:5432"
+
+  redis:
+    image: redis
+    ports:
+      - "6380:6379"
+
+  app:
+    <<: *app-opts
+    command: [
+      "wait-for-postgres.sh", "db",
+      "pipenv", "run", "./manage.py", "runserver", "0.0.0.0:8000"
+    ]
+    ports:
+      - "8000:8000"
+
+  worker:
+    <<: *app-opts
+    command: [
+      "wait-for-postgres.sh", "db",
+      "pipenv", "run", "./manage.py", "rqworker"
+    ]
