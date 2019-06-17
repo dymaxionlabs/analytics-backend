@@ -1,7 +1,12 @@
-.PHONY: test start stop
+.PHONY: test cov docker-start docker-stop docker-build docker-test docker-cov
 
 test:
 	pipenv run ./manage.py test
+
+cov:
+	pipenv run coverage run manage.py test
+	pipenv run coverage report
+	pipenv coverage html
 
 docker-start:
 	docker-compose up
