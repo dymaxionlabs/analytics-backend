@@ -5,12 +5,17 @@ x-app-opts: &app-opts
   image: "analytics:latest"
   volumes:
     - .:/app
-  environment:
-    - PG_HOST=db
-    - REDIS_URL=redis://redis:6379/0
   depends_on:
     - db
     - redis
+  environment:
+    - PIPENV_DONT_LOAD_ENV=1
+    - DB_HOST=db
+    - DB_NAME=terra
+    - DB_USER=postgres
+    - RQ_REDIS_URL=redis://redis:6379/0
+    - SECRET_KEY=foobar
+    - WEBCLIENT_URL=http://localhost:3000
 
 services:
   db:
@@ -31,6 +36,13 @@ services:
     ]
     ports:
       - "8000:8000"
+
+  test:
+    <<: *app-opts
+    command: [
+      "wait-for-postgres.sh", "db",
+      "pipenv", "run", "./manage.py", "test"
+    ]
 
   worker:
     <<: *app-opts

@@ -3,11 +3,14 @@
 test:
 	pipenv run ./manage.py test
 
-start:
+docker-start:
 	docker-compose up
 
-stop:
+docker-stop:
 	docker-compose stop
 
-build:
+docker-build:
 	docker-compose build
+
+docker-test:
+	docker-compose run test
