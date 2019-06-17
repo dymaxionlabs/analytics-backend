@@ -18,7 +18,7 @@ docker-build:
 	docker-compose build
 
 docker-test:
-	docker-compose run app wait-for-postgres.sh db pipenv run ./manage.py test
+	docker-compose run app wait-for-postgres.sh db make test
 
 docker-cov:
-	docker-compose run app wait-for-postgres.sh db "pipenv run coverage run manage.py test && pipenv run coverage report && pipenv run coverage html"
+	docker-compose run app wait-for-postgres.sh db make cov
