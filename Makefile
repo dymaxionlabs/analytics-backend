@@ -6,6 +6,7 @@ test:
 cov:
 	pipenv run coverage run manage.py test
 	pipenv run coverage report
+	pipenv run coverage xml
 	pipenv run coverage html
 
 docker-start:
