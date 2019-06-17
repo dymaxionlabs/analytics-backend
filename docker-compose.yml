@@ -16,6 +16,7 @@ x-app-opts: &app-opts
     - RQ_REDIS_URL=redis://redis:6379/0
     - SECRET_KEY=foobar
     - WEBCLIENT_URL=http://localhost:3000
+    - SENTRY_DNS=
 
 services:
   db:
