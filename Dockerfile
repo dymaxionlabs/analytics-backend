@@ -18,7 +18,7 @@ RUN mkdir /app
 WORKDIR /app
 
 COPY Pipfile Pipfile.lock /app/
-RUN pipenv install
+RUN pipenv install -d
 
 COPY docker/wait-for-postgres.sh \
   /usr/local/bin/
