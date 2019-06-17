@@ -13,4 +13,4 @@ docker-build:
 	docker-compose build
 
 docker-test:
-	docker-compose run test
+	docker-compose run app wait-for-postgres.sh db pipenv run ./manage.py test

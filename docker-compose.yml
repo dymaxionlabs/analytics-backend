@@ -38,13 +38,6 @@ services:
     ports:
       - "8000:8000"
 
-  test:
-    <<: *app-opts
-    command: [
-      "wait-for-postgres.sh", "db",
-      "pipenv", "run", "./manage.py", "test"
-    ]
-
   worker:
     <<: *app-opts
     command: [
