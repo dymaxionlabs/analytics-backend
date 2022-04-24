@@ -1,5 +1,7 @@
 # analytics-backend
 
+**Note: This repository has been superseded by [Dymaxion Labs Platform](https://github.com/dymaxionlabs/platform).**
+
 [![Build Status](https://travis-ci.org/dymaxionlabs/analytics-backend.svg?branch=master)](https://travis-ci.org/dymaxionlabs/analytics-backend)
 [![codecov](https://codecov.io/gh/dymaxionlabs/analytics-backend/branch/master/graph/badge.svg)](https://codecov.io/gh/dymaxionlabs/analytics-backend)
 
